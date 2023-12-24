@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: java-demo2-deployment
+  namespace: java-demo2
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: java-demo2
+  template:
+    metadata:
+      labels:
+        app: java-demo2
+    spec:
+      containers:
+      - name: java-demo2
+        image: 332901437876.dkr.ecr.us-east-1.amazonaws.com/java-demo2
+        ports:
+        - containerPort: 8080
+      imagePullSecrets:
+      - name: ecr-secret
+

@@ -1,0 +1,18 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: java-demo2-ingress
+  namespace: java-demo2
+spec:
+  rules:
+  - host: btuquizthree
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: java-demo2-service
+            port:
+              number: 80
+
